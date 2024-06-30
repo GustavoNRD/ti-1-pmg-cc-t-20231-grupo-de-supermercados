@@ -5,8 +5,20 @@
 			"name": "superseu",
 			"superID": 1,
 			"superIMG": "supernosso",
-			"superEndereço": "R. Carijos, 814, Jardim America, Belo Horizonte - MG 30421-340",
+			"superEndereço": "Av. Teresa Cristina, 6175 - Salgado Filho, Belo Horizonte - MG, 30550-390",
 			"superHoras": "Abre às 7:00, Fecha às 20:00.",
+			"pontuação": "2",
+			"longitude": "-43.98495972222804",
+			"latitude": "-19.93983969659736",
+      		"caracteristicas": [
+        		{
+					"estacionamento": "nao",
+					"açogue": "sim",
+					"padaria": "sim",
+					"hortifruti": "nao",
+					"adega": "sim"
+				}
+      		],
 			"mercadorias": [
 				{
 					"name": "product1placeholder",
@@ -32,6 +44,31 @@
 					"name": "product5placeholder",
 					"id": 5,
 					"price": 6.99
+				},
+				{
+					"name": "product1placeholder",
+					"id": 7,
+					"price": 10.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 6,
+					"price": 5.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 9,
+					"price": 5.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 11,
+					"price": 12.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 13,
+					"price": 46.99
 				}
 			]
 		},
@@ -40,23 +77,102 @@
 			"name": "carrefila",
 			"superID": 2,
 			"superIMG": "carrefour",
-			"superEndereço": "R. Jacui, 214, Floresta, Belo Horizonte - MG 30121-210",
+			"superEndereço": "Av. Dom Pedro II, 2930 - Carlos Prates, Belo Horizonte - MG, 30710-010",
 			"superHoras": "Aberto 24 Horas por dia.",
+			"pontuação": "1",
+			"longitude": "-43.96840995958834",
+			"latitude": " -19.910938939335423",
+			"caracteristicas": [
+			  {
+				  "estacionamento": "sim",
+				  "açogue": "sim",
+				  "padaria": "sim",
+				  "hortifruti": "nao",
+				  "adega": "sim"
+			  }
+			],
 			"mercadorias": [
 				{
 					"name": "product1placeholder",
-					"id": 1,	
-					"price": 2.99
+					"id": 1,
+					"price": 10.99
 				},
 				{
-					"name": "product2placeholder",
-					"id": 2,
-					"price": 4.99
+					"name": "product0placeholder",
+					"id": 4,
+					"price": 5.99
 				},
 				{
 					"name": "product4placeholder",
 					"id": 6,
-					"price": 29.99
+					"price": 15.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 8,
+					"price": 2.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 10,
+					"price": 6.99
+				},
+				{
+					"name": "product1placeholder",
+					"id": 14,
+					"price": 10.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 13,
+					"price": 5.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 11,
+					"price": 5.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 5,
+					"price": 12.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 2,
+					"price": 46.99
+				}
+			]
+		},
+		{
+			"displayname": "Bem Sobreviver",
+			"name": "bemviver",
+			"superID": 3,
+			"superIMG": "BemViver",
+			"superEndereço": "R. Gávea, 88 - Jardim America, Belo Horizonte - MG, 30421-340",
+			"superHoras": "Abre às 7:00, Fecha às 20:00.",
+			"pontuação": "5",
+			"longitude": "-43.97492885013003",
+			"latitude": " -19.93845405964713",
+      		"caracteristicas": [
+        		{
+					"estacionamento": "sim",
+					"açogue": "nao",
+					"padaria": "sim",
+					"hortifruti": "sim",
+					"adega": "nao"
+				}
+      		],
+			"mercadorias": [
+				{
+					"name": "product1placeholder",
+					"id": 1,
+					"price": 5.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 3,
+					"price": 8.99
 				},
 				{
 					"name": "product4placeholder",
@@ -64,11 +180,123 @@
 					"price": 15.99
 				},
 				{
+					"name": "product2placeholder",
+					"id": 5,
+					"price": 2.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 6,
+					"price": 6.99
+				},
+				{
+					"name": "product1placeholder",
+					"id": 7,
+					"price": 10.99
+				},
+				{
 					"name": "product0placeholder",
-					"id": 0,
-					"price": 3.49
+					"id": 8,
+					"price": 5.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 9,
+					"price": 5.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 10,
+					"price": 12.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 10,
+					"price": 8.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 13,
+					"price": 42.99
 				}
 			]
-		}
+		},
+		{
+			"displayname": "Opa!",
+			"name": "Epa",
+			"superID": 4,
+			"superIMG": "Epa",
+			"superEndereço": "R. Joaquim Nabuco, 208 - Nova Suíça, Belo Horizonte - MG, 30460-040",
+			"superHoras": "Abre às 7:00, Fecha às 20:00.",
+			"pontuação": "5",
+			"longitude": "-43.978120547754685",
+			"latitude": " -19.933024666436495",
+      		"caracteristicas": [
+        		{
+					"estacionamento": "sim",
+					"açogue": "sim",
+					"padaria": "sim",
+					"hortifruti": "sim",
+					"adega": "sim"
+				}
+      		],
+			"mercadorias": [
+				{
+					"name": "product1placeholder",
+					"id": 1,
+					"price": 3.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 3,
+					"price": 5.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 4,
+					"price": 12.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 5,
+					"price": 6.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 6,
+					"price": 9.99
+				},
+				{
+					"name": "product1placeholder",
+					"id": 7,
+					"price": 7.99
+				},
+				{
+					"name": "product0placeholder",
+					"id": 8,
+					"price": 8.99
+				},
+				{
+					"name": "product4placeholder",
+					"id": 9,
+					"price": 12.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 10,
+					"price": 14.99
+				},
+				{
+					"name": "product2placeholder",
+					"id": 12,
+					"price": 6.99
+				},
+				{
+					"name": "product5placeholder",
+					"id": 13,
+					"price": 48.99
+				}
+			]
+		}	
 	]
 }

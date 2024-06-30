@@ -4,7 +4,7 @@
 			"id": 0,
 			"name": "Maca",
 			"imagem": "Maca.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Frutas",
 				"Alimentos"
@@ -14,7 +14,7 @@
 			"id": 1,
 			"name": "Gatorade",
 			"imagem": "Gatorade.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Bebidas",
 				"Energeticos"
@@ -24,7 +24,7 @@
 			"id": 2,
 			"name": "Biscoitos-Polvilho",
 			"imagem": "Biscoitos-Polvilho.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Doces",
 				"Alimentos"
@@ -34,7 +34,7 @@
 			"id": 3,
 			"name": "Sabao-Homo",
 			"imagem": "Sabao-Homo.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Limpeza"
 			]
@@ -43,7 +43,7 @@
 			"id": 4,
 			"name": "Azeite",
 			"imagem": "Azeite.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Alimentos"
 			]
@@ -52,7 +52,7 @@
 			"id": 5,
 			"name": "Bala-Chita",
 			"imagem": "Bala-Chita.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Doces",
 				"Alimentos"
@@ -62,11 +62,90 @@
 			"id": 6,
 			"name": "Pernil",
 			"imagem": "Pernil.jpg",
-			"favorito": false,
+			"favoritado": false,
 			"tags": [
 				"Alimentos",
-				"Carne"
+				"Carnes"
 			]
-		}
+		},
+		{
+			"id": 7,
+			"name": "Arroz",
+			"imagem": "Arroz.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos",
+			  "Grãos"
+			]
+		  },
+		  {
+			"id": 8,
+			"name": "Leite",
+			"imagem": "Leite.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos",
+			  "Laticinios"
+			]
+		  },
+		  {
+			"id": 9,
+			"name": "Feijao",
+			"imagem": "Feijao.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos",
+			  "Grãos"
+			]
+		  },
+		  {
+			"id": 10,
+			"name": "Frango",
+			"imagem": "Frango.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos",
+			  "Carnes"
+			]
+		  },
+		  {
+			"id": 11,
+			"name": "Linguica",
+			"imagem": "Linguica.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos",
+			  "Carnes"
+			]
+		  },
+		  {
+			"id": 12,
+			"name": "Batata-Frita",
+			"imagem": "Batata-Frita.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Alimentos"
+			]
+		  },
+		  {
+			"id": 13,
+			"name": "Vinho",
+			"imagem": "Vinho.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Bebidas",
+			  "Alcool"
+			]
+		  },
+		  {
+			"id": 14,
+			"name": "Heineken",
+			"imagem": "Heineken.jpg",
+			"favoritado": false,
+			"tags": [
+			  "Bebidas",
+			  "Alcool"
+			]
+		  }
 	]
 }

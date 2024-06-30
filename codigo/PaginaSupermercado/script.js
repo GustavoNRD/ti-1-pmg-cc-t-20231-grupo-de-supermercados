@@ -19,39 +19,17 @@ class MarketPos {
 	}
 }
 
-// Simular produtos já em estoque por meio do JSON
-function simProducts() {
-	// Carregar lista de produtos template
-	$.getJSON("/../../assets/db/produtos.json", function (produtosData) {
-		//localStorage.setItem("produtos", JSON.stringify(produtosData));
-
-		// Carregar lista de supermercados template
-		$.getJSON("/../../assets/db/supermercados.json", function (supermercadosData) {
-
-			// Passar o nome correto de cada prodto para cada supermercado que contenha o ID desse produto
-			let currentID = 0;
-			for (let index = 0; index < supermercadosData.supermercados.length; index++) {
-				for (let index2 = 0; index2 < supermercadosData.supermercados[index].mercadorias.length; index2++) {
-
-					currentID = supermercadosData.supermercados[index].mercadorias[index2].id;
-					supermercadosData.supermercados[index].mercadorias[index2].name = produtosData.produtos[currentID].name;
-				}
-			}
-
-			localStorage.setItem("supermercadosDB", JSON.stringify(supermercadosData));
-		});
-		localStorage.setItem("produtosDB", JSON.stringify(produtosData));
-	});
-
-};
-
-// Fim da simulação. Precos estão carregados.
-
 //################################################################################
 //##################### Carregar Pagina Dinamicamente ############################
 //################################################################################
 
-let market = getPos("superseu");
+// let market = getPos("superseu");
+
+// Pegar a partir da URL
+var url = new URL(window.location.href);
+var idParam = url.searchParams.get('id');
+var id = parseInt(idParam);
+let market = getPos(id);
 
 // Para fins de teste, você pode mudar o parâmetro do getPos acima para qualquer 'name' definido
 // dentro do supermercados.json. "carrefila" e "superseu" são os supermercados padrões que coloquei.
@@ -82,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		newDiv.setAttribute('id', i + 1);
 
 		// Set the innerHTML of the new div to the original productbox HTML code
-		newDiv.innerHTML = `
+		newDiv.innerHTML = `<a href="../PaginaProduto/PaginaProduto.html?id=${market[0].smMerchandise[i].pID}">
     <img class="pimage" src="/../../assets/images/${market[0].smMerchandise[i].pName}.jpg">
 
     <div class="proddesc">
@@ -93,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>R$ </p>
             <p class="preco">${market[0].smMerchandise[i].pPrice}</p>
         </div>
-    </div>
+    </div></a>
   `;
 
 		// Append the new div to the parent section
@@ -117,65 +95,10 @@ function leDados(name) {
 
 	if (strDados) {
 		objDados = JSON.parse(strDados);
-		window.onbeforeunload = function () {
-			// Clear the Local Storage
-			localStorage.clear();
-		};
 	}
-
-	// Caso não de para carregar, carregamos um modelo de baixa fidelidade
-	// E recarregamos a pagina.
-
+	// Caso não de para carregar mostramos um alerta de erro.
 	else {
-		alert("Simulação de produtos Concluida. A pagina será recarregada automaticamente.");
-		setTimeout(function () {
-			location.reload();
-		}, 500);
-		objDados = {
-			supermercados: [
-				{
-					displayname: "SuperSeu",
-					name: "superseu",
-					superID: 1,
-					superIMG: "supernosso",
-					superEndereço: "R. Carijos, 814, Jardim America, Belo Horizonte - MG 30421-340",
-					superHoras: "Abre às 7:00, Fecha às 20:00.",
-					mercadorias: [
-						{
-							name: "Gatorade",
-							id: 1,
-							price: 10.99
-						},
-						{
-							name: "Biscoitos-Polvilho",
-							id: 2,
-							price: 2.99
-						}
-					]
-				},
-				{
-					displayname: "CarreFila",
-					name: "carrefila",
-					superID: 2,
-					superIMG: "carrefour",
-					superEndereço: "R. Carijos, 814, Jardim America, Belo Horizonte - MG 30421-340",
-					superHoras: "Abre às 7:00, Fecha às 20:00.",
-					mercadorias: [
-						{
-							name: "Gatorade",
-							id: 1,
-							price: 2.99
-						},
-						{
-							name: "Maca",
-							id: 0,
-							price: 3.49
-						}
-					]
-				}
-			]
-		};
-		simProducts();
+		alert("DB Não encontrada.");
 	}
 	return objDados;
 }
@@ -187,13 +110,12 @@ function getPos(name) {
 	let smDados = leDados('supermercadosDB');
 	let market = [];
 	let estoque = [];
-	name.toLowerCase();
-	let MarketName = "test";
+	let MarketName = 0;
 
 	// Quantidade de produtos total encontrado, em todos supermercados
 	for (let index = 0; index < smDados.supermercados.length; index++) {
 		// Dados sobre cada supermercado.
-		MarketName = smDados.supermercados[index].name;
+		MarketName = smDados.supermercados[index].superID;
 		if (MarketName == name) {
 			// Carregar dados sobre os produtos.
 			for (let index2 = 0; index2 < smDados.supermercados[index].mercadorias.length; index2++) {

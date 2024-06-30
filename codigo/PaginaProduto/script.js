@@ -1,40 +1,14 @@
 // Definir classe para achar detalhes de produtos.
 class prodPos {
-	constructor(smID, pIndex, tprice, tmerca, tnam) {
+	constructor(smID, pIndex, tprice, tmerca, tnam, tID) {
 		this.smID = smID;
 		this.pIndex = pIndex;
 		this.tprice = tprice;
 		this.tmerca = tmerca;
 		this.tnam = tnam;
+		this.tID = tID;
 	}
 }
-
-// Simular produtos já em estoque
-function simProducts() {
-	// Carregar lista de produtos template
-	$.getJSON("/../../assets/db/produtos.json", function (produtosData) {
-		//localStorage.setItem("produtos", JSON.stringify(produtosData));
-
-		// Carregar lista de supermercados template
-		$.getJSON("/../../assets/db/supermercados.json", function (supermercadosData) {
-
-			// Passar o nome correto de cada prodto para cada supermercado que contenha o ID desse produto
-			let currentID = 0;
-			for (let index = 0; index < supermercadosData.supermercados.length; index++) {
-				for (let index2 = 0; index2 < supermercadosData.supermercados[index].mercadorias.length; index2++) {
-					currentID = supermercadosData.supermercados[index].mercadorias[index2].id;
-					supermercadosData.supermercados[index].mercadorias[index2].name = produtosData.produtos[currentID].name;
-				}
-			}
-
-			localStorage.setItem("supermercadosDB", JSON.stringify(supermercadosData));
-		});
-		localStorage.setItem("produtosDB", JSON.stringify(produtosData));
-	});
-
-};
-
-// Fim da simulação. Precos estão carregados.
 
 //################################################################################
 //########################### Motor da Comparação ################################
@@ -53,7 +27,15 @@ Experimente:
 -------------------------------\\
 -------------------------vvvvvvvvvvvvvv---------------
 */
-let positions = getPos("Gatorade");
+// let positions = getPos(1); // - FUNCAO TESTE
+
+// Pegar a partir da URL
+var url = new URL(window.location.href);
+var idParam = url.searchParams.get('id');
+var id = parseInt(idParam);
+
+let positions = getPos(id);
+
 positions.sort(function (a, b) {
 	return parseFloat(a.tprice) - parseFloat(b.tprice);
 });
@@ -65,9 +47,12 @@ for (let index3 = 0.0; index3 < positions.length; index3++) {
 	average += positions[index3].tprice
 	divisor++;
 }
-if (divisor == 0){
-	divisor++;}
+if (divisor == 0) {
+	divisor++;
+}
 average = average / divisor
+average = average.toFixed(2) // Mostra até duas casas decimais.
+
 
 //################################################################################
 //##################### Carregar Pagina Dinamicamente ############################
@@ -98,18 +83,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div class="proddesc">
 
-        <p class="superm"> ${positions[i].tmerca}
-        </p>
+	<a href="../PaginaSupermercado/PaginaSupermercado.html?id=${positions[i].tID}"<p class="superm"> ${positions[i].tmerca}
+        </p></a>
 
         <p class="prodname pname"> ${positions[i].tnam}
         </p>
         <div class="pricetext">
             <p>R$ </p>
             <p class="preco">${positions[i].tprice}</p>
-        </div>
-        <div class="distancetext">
-            <p class="distance">0.2</p>
-            <p>KM</p>
         </div>
     </div>
   `;
@@ -136,44 +117,9 @@ function leDados(name) {
 	if (strDados) {
 		objDados = JSON.parse(strDados);
 	}
+	// Caso não de para carregar mostramos um alerta de erro.
 	else {
-		objDados = {
-			supermercados: [
-				{
-					name: "SuperSeu",
-					superID: 1,
-					mercadorias: [
-						{
-							name: "Gatorade",
-							id: 1,
-							price: 10.99
-						},
-						{
-							name: "Biscoitos-Polvilho",
-							id: 2,
-							price: 2.99
-						}
-					]
-				},
-				{
-					name: "CarreFila",
-					superID: 2,
-					mercadorias: [
-						{
-							name: "Gatorade",
-							id: 1,
-							price: 2.99
-						},
-						{
-							name: "Maca",
-							id: 0,
-							price: 3.49
-						}
-					]
-				}
-			]
-		};
-		simProducts();
+		alert("DB Não encontrada.");
 	}
 	return objDados;
 }
@@ -184,13 +130,12 @@ function getPos(name) {
 	// Ler os dados de Local Storage
 	let smDados = leDados('supermercadosDB');
 	let positions = [];
-	name.toLowerCase();
-	let prodName = "test";
+	let prodName = 0;
 
 	// Quantidade de produtos total encontrado, em todos supermercados
 	for (let index = 0; index < smDados.supermercados.length; index++) {
 		for (let index2 = 0; index2 < smDados.supermercados[index].mercadorias.length; index2++) {
-			prodName = smDados.supermercados[index].mercadorias[index2].name;
+			prodName = smDados.supermercados[index].mercadorias[index2].id;
 			if (name == prodName) {
 				positions.push(new prodPos(
 					index,
@@ -198,6 +143,7 @@ function getPos(name) {
 					smDados.supermercados[index].mercadorias[index2].price,
 					smDados.supermercados[index].name,
 					smDados.supermercados[index].mercadorias[index2].name,
+					smDados.supermercados[index].superID
 				));
 			}
 		}
